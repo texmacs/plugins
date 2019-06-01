@@ -32,9 +32,9 @@ class Graphviz(Graph):
         f = open(path, 'wb')
         cmd_list = [self.name, "-Tpng", "-Gdpi=400"]
         p = Popen(cmd_list, stdout=f, stdin=PIPE, stderr=PIPE)
-        out, err = p.communicate(input=code)
+        out, err = p.communicate(input=code.encode())
         if (p.returncode == 0):
             flush_file (png)
         else:
-            flush_verbatim (err)
+            flush_verbatim (str (err))
 
