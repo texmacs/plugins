@@ -36,5 +36,5 @@ class Graphviz(Graph):
         if (p.returncode == 0):
             flush_file (png)
         else:
-            flush_verbatim (str (err))
+            flush_verbatim (err.decode())
 
