@@ -22,7 +22,7 @@ class Graphviz(Graph):
             ret, err = p.communicate()
             # WARN: The Version Info is in stderr
             if (p.returncode == 0):
-                self.message = str(err)
+                self.message = err.decode()
         except OSError:
             pass
 
