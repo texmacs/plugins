@@ -9,6 +9,8 @@
       "tm_graphs"))
 
 (plugin-configure graphs
+  (:require (url-exists-in-path? "python"))
+  (:require (url-exists-in-path? "tm_graphs"))
   (:launch ,(graph-launcher))
   (:serializer ,python-serialize)
   (:session "Graph"))
