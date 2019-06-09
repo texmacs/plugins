@@ -53,6 +53,6 @@ class XYpic(Graph):
             if (p.returncode == 0):
                 flush_file (self.get_eps())
             else:
-                flush_verbatim ("dvips error!\n" + err)
+                flush_verbatim ("dvips error!\n" + err.decode())
         else: 
-            flush_verbatim ("LaTeX error!\n" + out)
+            flush_verbatim ("LaTeX error!\n" + out.decode())
