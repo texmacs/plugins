@@ -46,12 +46,12 @@
   (:require (url-exists-in-path? "sage"))
   ,@(sage-launchers)
   (:tab-completion #t)
-  (:serializer ,python-serialize)
+  (:serializer ,sage-serialize)
   (:session "Sage")
   (:scripts "Sage"))
 
 ;(set-session-multiline-input "sage" "default" #t)
 ;(set-program-multiline-input "sage" "default" #t)
 
-(when (supports-python?)
-  (import-from (python-widgets) (python-menus)))
+(when (supports-sage?)
+  (lazy-input-converter (sage-input) sage))
