@@ -89,7 +89,6 @@ def flush_output (data):
         else:
             flush_file (data.content)
     else:
-        print("other")
         flush_verbatim (str(data).strip())
 
 def my_eval (code, p_globals):
