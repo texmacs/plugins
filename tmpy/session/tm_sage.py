@@ -27,7 +27,7 @@ import string
 import ast
 import warnings
 warnings.simplefilter("ignore") # don't print warnings to stdout
-from tmpy.compat import py_ver
+from tmpy.compat import py_ver, tm_input
 from tmpy.capture import CaptureStdout
 from tmpy.postscript import ps_out, PSOutDummy, pdf_out, FileOutDummy
 from tmpy.completion import parse_complete_command, complete
@@ -35,8 +35,8 @@ from tmpy.protocol   import *
 from sage.all        import *
 
 if py_ver == 2:
-    flush_err ("Python 2 is no longer supported, please use Python 3")
-    exit (-1)
+    flush_err ("This version of SageMath uses Python 2, which is no longer actively supported in TeXmacs.\nIf you experience any problems please upgrade to SageMath 9.0 or higher.")
+#    exit (-1)
 
 # import logging as log
 # log.basicConfig(filename='/tmp/tm_python.log',level=log.INFO)
@@ -144,7 +144,7 @@ flush_verbatim (sage.misc.banner.version() + "\n" +
                "Please see the documentation in Help -> Plugins -> Sage")
 flush_prompt (">>> ")
 while True:
-    line= input ()
+    line= tm_input ()
     if not line:
         continue
     if line[0] == DATA_COMMAND:
@@ -163,7 +163,7 @@ while True:
     else:
         lines= [line]
         while line != "<EOF>":
-            line= input ()
+            line= tm_input ()
             if line == '': 
                 continue
             lines.append (line)
