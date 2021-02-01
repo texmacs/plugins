@@ -122,7 +122,10 @@ my_globals['__doc__'] = """A SageMath plugin for TeXmacs.
   Enjoy it!
   """
 
-text = 'import builtins as __builtins__'
+if py_ver > 3:
+    text = 'import builtins as __builtins__'
+else:
+    text = 'import __builtin__ as __builtins__'
 CaptureStdout.capture (text, my_globals, "tm_sage")
 
 sys.stdout = os.fdopen (sys.stdout.fileno(), 'w')
